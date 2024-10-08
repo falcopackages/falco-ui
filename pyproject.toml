@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "falco-ui"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Tobi DEGNON", email = "tobidegnon@proton.me" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = ["falco-app"]
+
+[project.urls]
+Documentation = "https://github.com/falcopackages/falco-ui#readme"
+Issues = "https://github.com/falcopackages/falco-ui/issues"
+Source = "https://github.com/falcopackages/falco-ui"
+
+[tool.hatch.version]
+path = "src/falco_ui/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/falco_ui tests}"
+
+[tool.coverage.run]
+source_pkgs = ["falco_ui", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/falco_ui/__about__.py",
+]
+
+[tool.coverage.paths]
+falco_ui = ["src/falco_ui", "*/falco-ui/src/falco_ui"]
+tests = ["tests", "*/falco-ui/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
