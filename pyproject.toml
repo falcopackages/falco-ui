@@ -34,6 +34,12 @@ Source = "https://github.com/falcopackages/falco-ui"
 [tool.hatch.version]
 path = "src/falco_ui/__about__.py"
 
+[tool.hatch.envs.default]
+dependencies = [
+  "django",
+  "django-allauth"
+]
+
 [tool.hatch.envs.types]
 extra-dependencies = [
   "mypy>=1.0.0",
