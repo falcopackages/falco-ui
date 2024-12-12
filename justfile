@@ -7,24 +7,20 @@ _default:
 
 # Install dependencies
 @bootstrap:
-    hatch env create
+    uv sync
 
 @clean:
-    hatch env prune
-
-# Ugrade dependencies
-upgrade:
-    hatch run hatch-pip-compile --upgrade --all
+    rm -rf .venv
 
 # Run all formatters
 @fmt:
     just --fmt --unstable
-    hatch fmt --formatter
-    hatch run pyproject-fmt pyproject.toml
-    hatch run pre-commit run reorder-python-imports -a
+    uvx ruff --formatter
+    uvx pyproject-fmt pyproject.toml
+    # hatch run pre-commit run reorder-python-imports -a
 
 @run-demo:
-    cd demo && hatch run python manage.py runserver
+    cd demo && uv run python manage.py work
 
 @run-dj *ARGS:
-    cd demo && hatch run python manage.py {{ ARGS }}
+    cd demo && uv run python manage.py {{ ARGS }}

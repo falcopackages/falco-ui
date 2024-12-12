@@ -1,6 +1,32 @@
 {% extends "base.html" %}
-{% load falco_ui %}
 
 {% block content %}
-
+<div class="collapse bg-base-200">
+    <input type="radio" name="my-accordion-1" checked="checked"/>
+    <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+    <div class="collapse-content">
+        <p>hello</p>
+    </div>
+</div>
+<div class="collapse bg-base-200">
+    <input type="radio" name="my-accordion-1"/>
+    <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+    <div class="collapse-content">
+        <p>hello</p>
+    </div>
+</div>
+<div class="collapse bg-base-200">
+    <input type="radio" name="my-accordion-1"/>
+    <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
+    <div class="collapse-content">
+        <p>hello</p>
+    </div>
+</div>
+<button class="btn">Button</button>
+<button class="btn btn-neutral">Neutral</button>
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-accent">Accent</button>
+<button class="btn btn-ghost">Ghost</button>
+<button class="btn btn-link">Link</button>
 {% endblock content %}
