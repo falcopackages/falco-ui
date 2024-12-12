@@ -1,31 +1,26 @@
 {% load i18n static %}
 <!DOCTYPE html>
 {% load tailwind_cli %}
+{% load django_simple_nav %}
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% tailwind_css %}
-    <title>
-        {% block head_title %}
-        {% endblock head_title %}
-    </title>
+    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+    <title>Demo</title>
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
 <body>
-{% if messages %}
-<div>
-    <strong>{% trans "Messages:" %}</strong>
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-</div>
-{% endif %}
-
-{% block content %}{% endblock content %}
-
+{% block body %}
+{% block navigation %}
+<nav>
+    {% django_simple_nav "demo.navigation.MainNav" %}
+</nav>
+{% endblock navigation %}
+{% block content %}
+{% endblock content %}
+{% endblock body %}
 </body>
 </html>

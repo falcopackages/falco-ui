@@ -1,0 +1,37 @@
+[project]
+name = "falco-ui"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+authors = [
+    { name = "Tobi DEGNON", email = "tobidegnon@proton.me" }
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+requires-python = ">=3.10"
+dependencies = ["falco-app>=0.3.5"]
+
+[project.urls]
+Documentation = "https://github.com/falcopackages/falco-ui#readme"
+Issues = "https://github.com/falcopackages/falco-ui/issues"
+Source = "https://github.com/falcopackages/falco-ui"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "django-allauth[socialaccount]>=65.3.0",
+    "django-htmx>=1.21.0",
+    "django-simple-nav>=0.11.0",
+    "django-tailwind-cli>=2.21.1",
+    "django-template-partials>=24.4",
+]

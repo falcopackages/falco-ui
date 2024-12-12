@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "demo",
     "falco_ui",
     "falco_ui.forms",
     "allauth",
@@ -36,6 +37,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "django_tailwind_cli",
     "django_simple_nav",
+    "django_htmx",
+    "template_partials",
     "falco",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -54,6 +57,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 ROOT_URLCONF = "demo.urls"
@@ -64,6 +68,7 @@ TEMPLATES = [
         "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
+            "builtins": ["template_partials.templatetags.partials"],
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",

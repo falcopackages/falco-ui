@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="flex justify-between">
+
+        <h1 class="text-lg font-bold">Author - {{author}} </h1>
+
+        <a href="{% url 'demo:author_list' %}" class="text-blue-600 hover:underline hover:text-blue-500">
+            All Authors
+        </a>
+    </section>
+
+    <ul class="py-5">
+        
+            <li>
+                <span class="font-bold">ID:</span> {{author.id}}
+            </li>
+        
+            <li>
+                <span class="font-bold">first name:</span> {{author.first_name}}
+            </li>
+        
+            <li>
+                <span class="font-bold">last name:</span> {{author.last_name}}
+            </li>
+        
+            <li>
+                <span class="font-bold">birth date:</span> {{author.birth_date}}
+            </li>
+        
+    </ul>
+
+
+    <a class="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white text-center text-base font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg"
+       href="{% url 'demo:author_update' author.pk %}">Edit</a>
+
+
+{% endblock content %}
+
