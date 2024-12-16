@@ -2,9 +2,6 @@
 _default:
     @just --list
 
-@install:
-    hatch run python --version
-
 # Install dependencies
 @bootstrap:
     uv sync
@@ -17,7 +14,7 @@ _default:
     just --fmt --unstable
     uvx ruff --formatter
     uvx pyproject-fmt pyproject.toml
-    # hatch run pre-commit run reorder-python-imports -a
+    # uvx --with pre-commit-uv pre-commit run reorder-python-imports -a
 
 @run-demo:
     cd demo && uv run python manage.py work
